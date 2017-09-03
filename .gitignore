@@ -1,0 +1,20 @@
+.idea
+*.iml
+out
+target/
+.gradle
+/build/
+
+*.DS_Store
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar

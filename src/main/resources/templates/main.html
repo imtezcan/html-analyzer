@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>HTML Analyzer</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}" href="../../css/bootstrap.min.css" />
+    <script th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+    <script th:src="@{/js/functions.js}" src="js/functions.js"></script>
+</head>
+<body>
+<h2>HTML Analyzer</h2>
+<p>
+    Please provide a link below and click submit to get analysis results.
+</p>
+<form onsubmit="return analyze()">
+    <p>URL: <input type="text" id="url" />
+    <button type="submit">Submit</button></p>
+</form>
+<!-- Results will be displayed here -->
+<div id="resultsBlock" >
+
+</div>
+</body>
+</html>

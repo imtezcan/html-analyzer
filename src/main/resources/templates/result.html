@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:fragment="resultsTable">
+    <table class="table">
+        <thead>
+        <th>Result</th>
+        <td></td>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Title</th>
+            <td th:text="${result.title}"></td>
+        </tr>
+        <tr>
+            <th>Version</th>
+            <td th:text="${result.version}">Unknown</td>
+        </tr>
+        <tr>
+            <th>Login?</th>
+            <td th:text="${result.hasLogin}">Could not determine</td>
+        </tr>
+        <tr>
+            <th>Headings</th>
+            <td></td>
+        </tr>
+
+        <tr th:each="headingEntry: ${result.headings}">
+            <th th:text="${headingEntry.key}"></th>
+            <td th:text="${headingEntry.value}"></td>
+        </tr>
+
+        <tr>
+            <th>Links</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Internal: </th>
+            <td th:text="${result.internalLinks.size()}"></td>
+        </tr>
+        <tr>
+            <th>External: </th>
+            <td th:text="${result.externalLinks.size()}"></td>
+        </tr>
+
+        <tr>
+            <th>Internal</th>
+            <th>URL</th>
+            <th>Working?</th>
+            <th>Reason</th>
+        </tr>
+
+        <tr class="link" th:each="linkEntry: ${result.internalLinks}">
+            <td></td>
+            <td><a th:text="${#strings.abbreviate(linkEntry.url, 75)}" th:href="${linkEntry.url}"></a></td>
+            <td class="working" th:text="${linkEntry.working}"></td>
+            <td class="reason" th:text="${linkEntry.reason}"></td>
+        </tr>
+        <tr>
+            <th>External</th>
+            <th>URL</th>
+            <th>Working?</th>
+            <th>Reason</th>
+        </tr>
+
+        <tr class="link" th:each="linkEntry: ${result.externalLinks}">
+            <td></td>
+            <td><a th:text="${#strings.abbreviate(linkEntry.url, 75)}" th:href="${linkEntry.url}"></a></td>
+            <td class="working" th:text="${linkEntry.working}"></td>
+            <td class="reason" th:text="${linkEntry.reason}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
